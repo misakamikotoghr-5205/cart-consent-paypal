@@ -1,4 +1,7 @@
-"""AI proposes catalog selections only; neither addresses nor payment tools reach it."""
+"""AI proposes catalog selections only; structured shipping fields and payment tools are omitted.
+
+The caller-supplied free-text goal is not redacted and must not contain sensitive data.
+"""
 import json
 import os
 from urllib.parse import urlsplit
@@ -13,7 +16,7 @@ class Planner:
         self.mode = env.get('CART_AGENT_MODE', 'mock')
         self.model = env.get('OLLAMA_MODEL', '')
         self.url = env.get('OLLAMA_URL', 'http://127.0.0.1:11434/api/chat')
-        self.transport, self.catalog = transport or JsonTransport(), catalog or CATALOG
+        self.transport, self.catalog = transport or JsonTransport(use_environment_proxy=False), catalog or CATALOG
         if self.mode not in ('mock', 'ollama'):
             raise ConfigurationError('Unknown agent mode; no automatic fallback is allowed.')
         if self.mode == 'ollama':
@@ -25,7 +28,7 @@ class Planner:
         if not isinstance(goal, str) or not 1 <= len(goal.strip()) <= 1000:
             raise ConsentError('Goal must contain 1–1,000 characters.')
         keys(context, {'currency', 'budget_minor', 'shipping'})
-        # Validate context without passing the private address to the model.
+        # Validate context without including its structured address fields in the model payload.
         currency = context['currency']
         validation = normalize_cart(context | {'selections': [{'sku': next(iter(self.catalog)), 'quantity': 1}]}, self.catalog)
         products = [{'sku': sku, 'name': product['name'], 'unit_minor': product['prices'][currency]} for sku, product in self.catalog.items()]

@@ -5,7 +5,7 @@ import os
 import re
 import time
 from urllib.parse import urlsplit, parse_qs
-from urllib.request import Request, build_opener, HTTPRedirectHandler
+from urllib.request import Request, build_opener, HTTPRedirectHandler, ProxyHandler
 
 from .domain import ConfigurationError, ProviderError, fingerprint, minor_value
 
@@ -16,8 +16,12 @@ class NoRedirect(HTTPRedirectHandler):
 
 
 class JsonTransport:
-    def __init__(self):
-        self.opener = build_opener(NoRedirect())
+    def __init__(self, *, use_environment_proxy=True):
+        handlers = [NoRedirect()]
+        if not use_environment_proxy:
+            # Local model requests must stay on loopback even when a proxy is configured.
+            handlers.append(ProxyHandler({}))
+        self.opener = build_opener(*handlers)
 
     def post(self, url, body, headers):
         try:

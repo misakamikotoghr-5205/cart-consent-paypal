@@ -87,7 +87,7 @@ class AdapterTests(unittest.TestCase):
         with self.assertRaises(ConfigurationError):
             PayPalSandbox(CONFIG | {'PAYPAL_RETURN_URL': 'http://example.org/return'})
 
-    def test_ollama_structured_proposal_excludes_address_and_has_no_approval_capability(self):
+    def test_ollama_structured_proposal_excludes_structured_address_and_has_no_approval_capability(self):
         class ModelTransport:
             payload = None
 
