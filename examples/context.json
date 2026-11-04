@@ -1,0 +1,15 @@
+{
+  "currency": "USD",
+  "budget_minor": 5000,
+  "shipping": {
+    "method": "standard",
+    "address": {
+      "full_name": "Example Buyer",
+      "address_line_1": "123 Fictional Demo Street",
+      "admin_area_2": "San Jose",
+      "admin_area_1": "CA",
+      "postal_code": "95131",
+      "country_code": "US"
+    }
+  }
+}
