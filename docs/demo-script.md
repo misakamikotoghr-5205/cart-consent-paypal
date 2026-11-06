@@ -10,3 +10,18 @@ Use English narration and fictional data. Do not reveal role tokens, sandbox sec
 6. **2:30–2:50:** Show passing local tests and state the boundaries: local consent gate, no AP2 certification, no capture, no remote cancellation claim.
 
 For offline evaluation use `python3 -m cart_consent demo` or `scripts/api_demo.py`; both disclose synthetic consent and no actual AI/payment. A competition video should separately evidence the actual configured AI and sandbox integrations before claiming the required technology usage.
+
+## Actual local-model evidence, 2026-11-06
+
+`docs/evidence/local-model-20261106.json` now preserves real production-adapter
+requests to local `qwen2.5:0.5b`, not test doubles. A short one-pen-set request
+returned in 21.350 seconds, passed the known-SKU/quantity/budget checks, and was
+persisted as unapproved `DRAFT` in a temporary database. Its total was 1,398 minor
+units including shipping. The earlier timeout, rejected over-budget proposal,
+and later 90-second timeout remain disclosed. The accepted response is narrow
+evidence, not a general quality benchmark.
+
+This JSON is not a video or a PayPal sandbox record. Reproduce the actual model
+segment when recording; retain the distinction between the model proposal and
+human consent, and complete authorized sandbox setup before narrating a real
+order link. Nothing in this run contacted PayPal, checked out or captured funds.

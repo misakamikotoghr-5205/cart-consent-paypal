@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-06T05:08:25.359970+00:00",
+  "project": "cart-consent-paypal",
+  "scope": "Two sequential genuine local /api/chat requests through production Planner and JsonTransport. The logging wrapper delegates unchanged bytes. Fictional examples only; no PayPal provider or role token is constructed.",
+  "runtime": {
+    "version": "0.40.15"
+  },
+  "model": {
+    "name": "qwen2.5:0.5b",
+    "digest": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+    "size": 397821319,
+    "modified_at": "2026-11-06T04:57:31.3100209Z",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "494.03M",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 896,
+      "runner": "ggml"
+    }
+  },
+  "configuration": {
+    "model_endpoint": "http://127.0.0.1:11434/api/chat",
+    "temperature": 0,
+    "timeout_seconds": 90,
+    "environment_proxy_used": false,
+    "redirects_followed": false
+  },
+  "fictional_input": {
+    "goal": "Select exactly one notebook with quantity 1 and no other items. The item costs 1299 minor units, standard shipping costs 499 minor units, and total 1798 is below the 5000 budget. Explain briefly. Do not approve or pay.",
+    "context_source": "examples/context.json",
+    "context_sha256": "dae8a337df13c0473c9bc68dae174c882954c32621487b2e7fa96928d4e10267"
+  },
+  "earlier_attempts": [
+    {
+      "attempt": "root-initial",
+      "outcome": "transport failure; root observed 15-second timeout",
+      "stdout": "output/real-model-20261106/stdout.json",
+      "stderr": "output/real-model-20261106/stderr.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4f4da45126650766b32d2339fafd051827b2c693ee6c5997021b0f26b3379cc4",
+      "reported_error": {
+        "error": "ProviderError",
+        "message": "Upstream request failed; no checkout or capture was performed by this application."
+      }
+    },
+    {
+      "attempt": "root-retry",
+      "outcome": "model output rejected by budget guard; no draft created",
+      "stdout": "output/real-model-20261106/retry.stdout.json",
+      "stderr": "output/real-model-20261106/retry.stderr.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "33faa78a991f61285c2a8782de765d9fdd8fe3521a7089a5d3d265d221fa2015",
+      "reported_error": {
+        "error": "ConsentError",
+        "message": "Proposed basket exceeds the budget including shipping; no draft was created."
+      }
+    }
+  ],
+  "result": {
+    "accepted": true,
+    "proposal": {
+      "draft": {
+        "currency": "USD",
+        "budget_minor": 5000,
+        "shipping": {
+          "method": "standard",
+          "address": {
+            "full_name": "Example Buyer",
+            "address_line_1": "123 Fictional Demo Street",
+            "admin_area_2": "San Jose",
+            "admin_area_1": "CA",
+            "postal_code": "95131",
+            "country_code": "US"
+          }
+        },
+        "selections": [
+          {
+            "sku": "pen-set",
+            "quantity": 1
+          }
+        ]
+      },
+      "explanation": "Buy one pen-set only. Quantity 1. Reason: OK.",
+      "agent_mode": "ollama",
+      "ai_used": true,
+      "model": "qwen2.5:0.5b",
+      "approval_granted": false
+    },
+    "validated_totals": {
+      "items_minor": 899,
+      "shipping_minor": 499,
+      "tax_minor": 0,
+      "total_minor": 1398
+    },
+    "persisted_status": "DRAFT",
+    "approval_granted": false,
+    "payment_provider_called": false,
+    "checkout_or_capture_performed": false
+  },
+  "calls": [
+    {
+      "url": "http://127.0.0.1:11434/api/chat",
+      "request": {
+        "model": "qwen2.5:0.5b",
+        "stream": false,
+        "format": {
+          "type": "object",
+          "required": [
+            "selections",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "selections": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 20,
+              "items": {
+                "type": "object",
+                "required": [
+                  "sku",
+                  "quantity"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "sku": {
+                    "type": "string",
+                    "enum": [
+                      "notebook",
+                      "pen-set",
+                      "desk-pouch"
+                    ]
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                  }
+                }
+              }
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        "options": {
+          "temperature": 0
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Propose a shopping basket using only the catalog SKUs and quantities. Stay within the stated budget including shipping. You have no approval, payment, checkout, or external tools. Return the requested JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"goal\": \"Select exactly one notebook with quantity 1 and no other items. The item costs 1299 minor units, standard shipping costs 499 minor units, and total 1798 is below the 5000 budget. Explain briefly. Do not approve or pay.\", \"currency\": \"USD\", \"budget_minor\": 5000, \"shipping_minor\": 499, \"catalog\": [{\"sku\": \"notebook\", \"name\": \"Recycled-paper notebook\", \"unit_minor\": 1299}, {\"sku\": \"pen-set\", \"name\": \"Three refillable pens\", \"unit_minor\": 899}, {\"sku\": \"desk-pouch\", \"name\": \"Canvas desk pouch\", \"unit_minor\": 1599}]}"
+          }
+        ]
+      },
+      "started_at": "2026-11-06T05:04:11.018222+00:00",
+      "error": {
+        "type": "ProviderError",
+        "message": "Upstream request failed; no checkout or capture was performed by this application."
+      },
+      "elapsed_seconds": 90.091
+    },
+    {
+      "url": "http://127.0.0.1:11434/api/chat",
+      "request": {
+        "model": "qwen2.5:0.5b",
+        "stream": false,
+        "format": {
+          "type": "object",
+          "required": [
+            "selections",
+            "reason"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "selections": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 20,
+              "items": {
+                "type": "object",
+                "required": [
+                  "sku",
+                  "quantity"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "sku": {
+                    "type": "string",
+                    "enum": [
+                      "notebook",
+                      "pen-set",
+                      "desk-pouch"
+                    ]
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 20
+                  }
+                }
+              }
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        "options": {
+          "temperature": 0
+        },
+        "messages": [
+          {
+            "role": "system",
+            "content": "Propose a shopping basket using only the catalog SKUs and quantities. Stay within the stated budget including shipping. You have no approval, payment, checkout, or external tools. Return the requested JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"goal\": \"Buy one pen-set only. Quantity 1. Reason: OK.\", \"currency\": \"USD\", \"budget_minor\": 5000, \"shipping_minor\": 499, \"catalog\": [{\"sku\": \"notebook\", \"name\": \"Recycled-paper notebook\", \"unit_minor\": 1299}, {\"sku\": \"pen-set\", \"name\": \"Three refillable pens\", \"unit_minor\": 899}, {\"sku\": \"desk-pouch\", \"name\": \"Canvas desk pouch\", \"unit_minor\": 1599}]}"
+          }
+        ]
+      },
+      "started_at": "2026-11-06T05:08:03.895991+00:00",
+      "response": {
+        "model": "qwen2.5:0.5b",
+        "created_at": "2026-11-06T05:08:25.224109621Z",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"selections\": [\n    {\n      \"sku\": \"pen-set\",\n      \"quantity\": 1\n    }\n  ],\n  \"reason\": \"Buy one pen-set only. Quantity 1. Reason: OK.\"\n}"
+        },
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 21320010233,
+        "load_duration": 5554772,
+        "prompt_eval_count": 178,
+        "prompt_eval_cached_count": 3,
+        "prompt_eval_duration": 13152419000,
+        "eval_count": 50,
+        "eval_duration": 8147755000
+      },
+      "elapsed_seconds": 21.35
+    }
+  ],
+  "limitations": [
+    "Two narrow fictional requests, with all prior failures retained, are not a quality benchmark or end-to-end PayPal demonstration.",
+    "Earlier timeout and over-budget rejection remain part of the observed record.",
+    "No checkout, merchant onboarding, sandbox order, buyer payment, capture, video, or event submission occurred."
+  ],
+  "attempts": [
+    {
+      "name": "targeted-notebook",
+      "goal": "Select exactly one notebook with quantity 1 and no other items. The item costs 1299 minor units, standard shipping costs 499 minor units, and total 1798 is below the 5000 budget. Explain briefly. Do not approve or pay.",
+      "result": {
+        "accepted": false,
+        "error": {
+          "type": "ProviderError",
+          "message": "Upstream request failed; no checkout or capture was performed by this application."
+        },
+        "payment_provider_called": false,
+        "checkout_or_capture_performed": false
+      },
+      "call_indices": [
+        0
+      ]
+    },
+    {
+      "name": "short-one-pen-set",
+      "goal": "Buy one pen-set only. Quantity 1. Reason: OK.",
+      "result": {
+        "accepted": true,
+        "proposal": {
+          "draft": {
+            "currency": "USD",
+            "budget_minor": 5000,
+            "shipping": {
+              "method": "standard",
+              "address": {
+                "full_name": "Example Buyer",
+                "address_line_1": "123 Fictional Demo Street",
+                "admin_area_2": "San Jose",
+                "admin_area_1": "CA",
+                "postal_code": "95131",
+                "country_code": "US"
+              }
+            },
+            "selections": [
+              {
+                "sku": "pen-set",
+                "quantity": 1
+              }
+            ]
+          },
+          "explanation": "Buy one pen-set only. Quantity 1. Reason: OK.",
+          "agent_mode": "ollama",
+          "ai_used": true,
+          "model": "qwen2.5:0.5b",
+          "approval_granted": false
+        },
+        "validated_totals": {
+          "items_minor": 899,
+          "shipping_minor": 499,
+          "tax_minor": 0,
+          "total_minor": 1398
+        },
+        "persisted_status": "DRAFT",
+        "approval_granted": false,
+        "payment_provider_called": false,
+        "checkout_or_capture_performed": false
+      },
+      "call_indices": [
+        1
+      ]
+    }
+  ]
+}

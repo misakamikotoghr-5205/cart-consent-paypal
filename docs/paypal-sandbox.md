@@ -36,6 +36,12 @@ Before returning a link, the ledger rechecks revision, catalog, approval nonce, 
 
 The optional planner follows the official [chat API](https://docs.ollama.com/api/chat) and [structured-output guidance](https://docs.ollama.com/capabilities/structured-outputs). It sends `model`, `messages`, `stream=false`, a JSON schema in `format`, and a low-temperature option. It does not supply tools. Only loopback `/api/chat` endpoints are accepted, and that transport disables environment proxies. The sandbox payment transport retains environment proxy support. Structured shipping-address fields are omitted from model messages, but the free-text goal is sent unchanged; do not include addresses, personal information, tokens, or other secrets in it. No arbitrary-text privacy filter or redaction is promised. Model name and model licensing are the operator's explicit configuration, not an implicit download.
 
+The [2026-11-06 real local-model record](evidence/local-model-20261106.json)
+includes a valid unapproved pen-set draft, two observed timeouts and a prior
+budget rejection. The installed model was `qwen2.5:0.5b`; all inputs were shipped
+fictional examples. This provides local proposal evidence only. The PayPal
+sandbox OAuth/order path has not been called with real account credentials.
+
 ## Verification boundary
 
 `python3 scripts/verify.py` runs domain, race, persistence, role-authentication, CLI, and adapter contract tests. Transport doubles check the official OAuth/Orders request fields and reject wrong amount, item, merchant, address, fingerprint, URL, or completed status. Model doubles check constrained output and omission of structured shipping-address fields; intercepted transport tests verify that environment proxies cannot reroute local-model requests while remaining available for sandbox requests. These are offline contract tests, not a successful PayPal sandbox integration or a real model quality evaluation.

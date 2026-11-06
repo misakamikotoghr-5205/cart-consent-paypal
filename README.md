@@ -79,7 +79,15 @@ CART_AGENT_MODE=ollama OLLAMA_MODEL=YOUR_INSTALLED_MODEL python3 -m cart_consent
 
 The adapter uses documented `/api/chat` structured output. Only a goal, catalog, budget, currency, and shipping amount are sent to the model. The structured `shipping.address` fields, role tokens, PayPal credentials, approval tools, and payment tools are omitted. The free-text `goal` is sent unchanged: do not put addresses, personal information, secrets, or other sensitive data in it. This adapter does not detect or redact sensitive content in arbitrary text. Output is restricted to known SKU/quantity selections and an explanation, then independently validated. Bad output or unavailable inference fails without falling back to fake AI. `ai_used=true` appears only for configured Ollama calls; mock selection explicitly reports `false`. The local-model HTTP transport ignores environment proxy settings so its configured loopback request stays direct; the PayPal sandbox transport retains normal environment proxy support.
 
-No model was installed or run during this delivery. Adapter contracts were tested with doubles. A real model demonstration and output review remain necessary for a hackathon submission.
+On 2026-11-06, the production planner and HTTP transport were exercised with an
+actual local CPU-only `qwen2.5:0.5b` model and fictional inputs. A short request
+for one pen set returned in 21.350 seconds: 899 item + 499 shipping = 1,398 minor
+units, below the 5,000 budget. The validated proposal was persisted only as
+`DRAFT`, with no approval or payment provider call. The [public evidence](docs/evidence/local-model-20261106.json)
+retains that raw response, an earlier rejected over-budget response outcome,
+and both observed timeouts. One targeted request is not a shopping-quality
+benchmark. Unit adapter tests still use doubles; real PayPal sandbox validation,
+entrant review and a recorded combined demonstration remain incomplete.
 
 ## PayPal sandbox adapter
 

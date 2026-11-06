@@ -16,16 +16,17 @@ class NoRedirect(HTTPRedirectHandler):
 
 
 class JsonTransport:
-    def __init__(self, *, use_environment_proxy=True):
+    def __init__(self, *, use_environment_proxy=True, timeout=15):
         handlers = [NoRedirect()]
         if not use_environment_proxy:
             # Local model requests must stay on loopback even when a proxy is configured.
             handlers.append(ProxyHandler({}))
         self.opener = build_opener(*handlers)
+        self.timeout = timeout
 
     def post(self, url, body, headers):
         try:
-            with self.opener.open(Request(url, data=body, headers=headers, method='POST'), timeout=15) as response:
+            with self.opener.open(Request(url, data=body, headers=headers, method='POST'), timeout=self.timeout) as response:
                 raw = response.read(1048577)
                 if len(raw) > 1048576:
                     raise ValueError('response too large')

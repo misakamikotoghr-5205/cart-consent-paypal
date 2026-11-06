@@ -16,7 +16,8 @@ class Planner:
         self.mode = env.get('CART_AGENT_MODE', 'mock')
         self.model = env.get('OLLAMA_MODEL', '')
         self.url = env.get('OLLAMA_URL', 'http://127.0.0.1:11434/api/chat')
-        self.transport, self.catalog = transport or JsonTransport(use_environment_proxy=False), catalog or CATALOG
+        # CPU-only local models can need longer than a remote payment request.
+        self.transport, self.catalog = transport or JsonTransport(use_environment_proxy=False, timeout=90), catalog or CATALOG
         if self.mode not in ('mock', 'ollama'):
             raise ConfigurationError('Unknown agent mode; no automatic fallback is allowed.')
         if self.mode == 'ollama':
