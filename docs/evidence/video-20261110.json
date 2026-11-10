@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "project": "cart-consent-paypal",
+  "published_date_utc": "2026-11-10",
+  "title": "Cart Consent | Exact Basket Approval + PayPal Sandbox",
+  "public_video_url": "https://youtu.be/icz2WX1DXZ4",
+  "duration_seconds": 138.8,
+  "local_upload_source_bytes": 2036177,
+  "local_upload_source_sha256": "613781979f0f75434658069c0d2c528cd6e843a59114e69eb937bbe9a5c500f6",
+  "presentation": {
+    "edited_sanitized_evidence_cards": true,
+    "actual_mock_mode_native_terminal_shot": true,
+    "continuous_recording": false,
+    "narration": "Generic synthetic Aria English voice; not a voice clone",
+    "burned_in_english_caption_count": 25
+  },
+  "verification": {
+    "publication_receipt_verified": true,
+    "full_audio_video_decode_passed": true,
+    "full_manual_audio_listening_claimed": false
+  },
+  "scope": "Developer-operated synthetic demo. Actual local-model and unpaid sandbox-order evidence is distinguished from the mock terminal demonstration. No buyer checkout, capture or production payment.",
+  "formal_project_submission": false,
+  "final_project_receipt": null,
+  "remaining_step": "Start project / CAPTCHA awaits current consent/action, followed by project form completion and final Submit."
+}

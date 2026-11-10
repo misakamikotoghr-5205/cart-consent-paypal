@@ -86,8 +86,30 @@ units, below the 5,000 budget. The validated proposal was persisted only as
 `DRAFT`, with no approval or payment provider call. The [public evidence](docs/evidence/local-model-20261106.json)
 retains that raw response, an earlier rejected over-budget response outcome,
 and both observed timeouts. One targeted request is not a shopping-quality
-benchmark. Unit adapter tests still use doubles; real PayPal sandbox validation,
-entrant review and a recorded combined demonstration remain incomplete.
+benchmark. Unit adapter tests still use doubles; they are distinct from the
+subsequent real integration record below.
+
+On 2026-11-10, a fresh local `qwen2.5:0.5b` proposal returned in **5.899 seconds**
+and remained an unapproved `DRAFT`. The developer reviewed the exact fictional
+snapshot: one pen set, USD 8.99 plus USD 4.99 shipping, total **USD 13.98** against
+a USD 50.00 budget. An explicit local CLI approval then allowed the real PayPal
+sandbox adapter to create one unpaid order with status **`PAYER_ACTION_REQUIRED`**.
+The returned amount, items, shipping, merchant and snapshot identifiers passed
+the existing strict checks without an adapter code change. An initial OAuth
+HTTP 401 occurred before any Orders request; correcting duplicated private
+configuration retained the same cart, fingerprint, approval nonce and persisted
+request ID. See the [sanitized integration record](docs/evidence/sandbox-model-20261110.json).
+
+This was a **developer-operated synthetic demonstration**, not authenticated
+real-buyer consent. The returned approval link was not opened. There was no
+buyer checkout, authorization, capture or production payment. The local run is
+evidence of the AI-to-reviewed-sandbox-order path, not a model-quality benchmark
+or independent certification. A subsequent guarded CLI call returned the cached
+existing order with zero network calls; this checks local replay, not remote
+PayPal idempotency. The [published demonstration](https://youtu.be/icz2WX1DXZ4) is now available
+(138.8 seconds, November 10). It edits sanitized evidence cards together with an
+actual mock-mode terminal shot; it is not a continuous recording. Final project
+submission remains pending at the Start project CAPTCHA step.
 
 ## PayPal sandbox adapter
 
@@ -101,6 +123,6 @@ The adapter only exchanges OAuth credentials and creates sandbox orders after hu
 
 [Landscape comparison](docs/landscape.md) covers PayPal Agent Toolkit and Google's AP2 with pinned commits and licenses. Approval-bound checkout is established work; this is an independently implemented, smaller policy gate, not a protocol invention or a fork. It is distinct from paid-content delivery: its output is a reviewed shopping decision, with changes that invalidate consent.
 
-[Competition notes](docs/competition.md) record eligibility, dates, required technologies, open-source rules, and outstanding submission materials. The repository has not been registered or submitted; no sandbox/model integration result, prize eligibility guarantee, or commercial security certification is implied.
+[Competition notes](docs/competition.md) record eligibility, dates, required technologies, open-source rules, and outstanding submission materials. Event registration was verified on **2026-11-09**. The real model/sandbox run and [138.8-second public video](https://youtu.be/icz2WX1DXZ4) were completed on November 10. Formal project submission remains pending at Start project / CAPTCHA; the current CAPTCHA consent/action is still pending. Registration and a successful local integration run are not a final submission receipt, prize eligibility guarantee or commercial security certification.
 
 MIT License. No GitHub Actions workflow is included; verification is local and reproducible.

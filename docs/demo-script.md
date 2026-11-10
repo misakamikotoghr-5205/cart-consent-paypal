@@ -1,27 +1,24 @@
-# Demo recording outline — under three minutes
+# Published demonstration — 138.8 seconds
 
-Use English narration and fictional data. Do not reveal role tokens, sandbox secrets, access tokens, or real addresses. No video has been recorded or uploaded by this repository.
+**Published November 10, 2026:** [Cart Consent | Exact Basket Approval + PayPal Sandbox](https://youtu.be/icz2WX1DXZ4), **138.8 seconds**. Event registration was verified November 9. Final project submission remains pending at Start project / CAPTCHA, awaiting the current CAPTCHA consent/action; there is no final project receipt.
 
-1. **0:00–0:20:** “A basket changed after approval. Should an AI shopper still be allowed to check out?” Show the purpose and the fact that no capture operation exists.
-2. **0:20–0:50:** Run the configured Ollama proposal command. Show the selected catalog items, `ai_used=true`, and that status remains `DRAFT`. If no model was actually run, label this portion as a mock and do not claim AI integration is demonstrated.
-3. **0:50–1:20:** Use the human review command to see the complete basket and address. Show that the agent role gets 403 for approval. Approve the exact reviewed fingerprint.
-4. **1:20–1:55:** Change shipping or the postcode. Attempt the old fingerprint and show 409. Review the changed field names in the audit without exposing address values.
-5. **1:55–2:30:** Reapprove the new snapshot and, only with authorized sandbox configuration, create its sandbox order link. Do not capture or open the buyer checkout automatically. Clearly distinguish real sandbox creation from the mock link demo.
-6. **2:30–2:50:** Show passing local tests and state the boundaries: local consent gate, no AP2 certification, no capture, no remote cancellation claim.
+The published cut combines edited sanitized evidence cards with an actual mock-mode native terminal shot. It is not a continuous recording. It has generic synthetic Aria narration and 25 burned-in English captions. Full audio/video decoding passed; no full manual audio-listening claim is made. [Public media metadata](evidence/video-20261110.json) records source bytes and SHA-256. The table below preserves the original editorial outline; its planning times and example narration are not measured timestamps or a verbatim transcript of the shorter final cut.
 
-For offline evaluation use `python3 -m cart_consent demo` or `scripts/api_demo.py`; both disclose synthetic consent and no actual AI/payment. A competition video should separately evidence the actual configured AI and sandbox integrations before claiming the required technology usage.
+Use English narration and fictional data. Keep secrets, role tokens, access tokens, merchant/order identifiers, approval URLs and the private ledger off screen. When using saved results, label them as saved run evidence; do not present evidence cards as a continuous live terminal recording. Do not create another remote order merely to illustrate a successful result already recorded.
 
-## Actual local-model evidence, 2026-11-06
+| Time | Actual evidence / planned shot | Narration |
+| --- | --- | --- |
+| 0:00–0:20 | Project title, fictional catalog and approval boundary | “An AI can suggest a basket. The problem is keeping an approval attached to exactly what was reviewed.” |
+| 0:20–0:50 | Saved November 10 model proposal; show the real `ai_used=true`, one pen set and unapproved `DRAFT` | “This fresh local Qwen proposal took 5.899 seconds. Catalog-owned prices give eight dollars ninety-nine plus four ninety-nine shipping: thirteen ninety-eight, below a fifty-dollar budget. A proposal does not approve itself.” |
+| 0:50–1:20 | Sanitized exact snapshot and explicit developer fingerprint approval | “For this fictional demonstration, the developer reviewed and approved the exact snapshot. This is not authenticated buyer consent. Agent and human HTTP capabilities are implemented separately; their role-denial demonstration uses mocks.” |
+| 1:20–1:50 | A separately labeled local mock policy demonstration; the published cut includes an actual mock terminal shot | “In this local policy demonstration, changing a critical field revokes approval. The stale fingerprint cannot obtain a link.” Show the actual rejection and changed-field audit; do not imply that an existing remote URL was cancelled. |
+| 1:50–2:25 | Sanitized November 10 sandbox result and trace provenance | “The real sandbox run returned PAYER ACTION REQUIRED. An initial OAuth configuration error was corrected before the Orders request, with the same cart and request identity. One remote order was created. Its approval link was not opened.” |
+| 2:25–2:45 | Run boundaries and README reproduction instructions | “CAPTURE is the order's intent field; no capture was executed or implemented. There was no buyer checkout or production payment. Exact retries reuse a saved request identity, while local revocation cannot cancel an already disclosed remote URL.” |
 
-`docs/evidence/local-model-20261106.json` now preserves real production-adapter
-requests to local `qwen2.5:0.5b`, not test doubles. A short one-pen-set request
-returned in 21.350 seconds, passed the known-SKU/quantity/budget checks, and was
-persisted as unapproved `DRAFT` in a temporary database. Its total was 1,398 minor
-units including shipping. The earlier timeout, rejected over-budget proposal,
-and later 90-second timeout remain disclosed. The accepted response is narrow
-evidence, not a general quality benchmark.
+## Actual run sources
 
-This JSON is not a video or a PayPal sandbox record. Reproduce the actual model
-segment when recording; retain the distinction between the model proposal and
-human consent, and complete authorized sandbox setup before narrating a real
-order link. Nothing in this run contacted PayPal, checked out or captured funds.
+- [November 10 combined run](evidence/sandbox-model-20261110.json): Ollama 0.40.15 / `qwen2.5:0.5b`; 5.899-second fresh unapproved proposal, explicit synthetic operator review/approval, real OAuth and one unpaid sandbox order; `PAYER_ACTION_REQUIRED`. The existing adapter accepted all required snapshot fields. Success HTTP status was not recorded. A subsequent guarded checkout call returned the cached existing order with zero network calls, verifying local replay rather than remote idempotency. Raw results and ledger remain private; the public record is sanitized operator-held evidence, not independent certification.
+- [November 6 historical local-model run](evidence/local-model-20261106.json): an earlier 21.350-second valid pen-set draft plus two observed timeouts and a budget rejection. That historical run made no payment-provider call. Preserve its narrower boundary rather than retroactively attributing the later order to it.
+- `python3 -m cart_consent demo` and `scripts/api_demo.py`: separate, explicitly synthetic local consent/payment demonstrations. They do not perform model inference or PayPal order creation and cannot replace the actual integration evidence.
+
+The real November 10 CLI operator controls the local ledger. Do not narrate that operator action as proof of an independent buyer's identity. Codex assisted design, implementation, tests and documentation; the runtime model made only a constrained proposal, with no approval or payment authority. No quality benchmark, AP2 certification, real address/tax/shipping validation or remote cancellation is claimed.

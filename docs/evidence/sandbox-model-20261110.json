@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-10T07:01:20.282103+00:00",
+  "project": "cart-consent-paypal",
+  "scope": "Genuine fresh local Ollama proposal followed by developer-operated review/approval and real PayPal sandbox unpaid-order creation. This is a fictional demo, not authenticated real-buyer consent or a purchase.",
+  "model": {
+    "name": "qwen2.5:0.5b",
+    "runtime": "Ollama 0.40.15",
+    "ai_used": true,
+    "proposal_elapsed_seconds": 5.899,
+    "goal": "Buy one pen-set only. Quantity 1. Reason: OK.",
+    "accepted_selections": [
+      {
+        "sku": "pen-set",
+        "quantity": 1
+      }
+    ],
+    "proposal_initial_status": "DRAFT",
+    "proposal_approval_granted": false,
+    "structured_shipping_address_sent_to_model": false
+  },
+  "reviewed_fictional_totals": {
+    "currency": "USD",
+    "item_minor": 899,
+    "shipping_minor": 499,
+    "tax_minor": 0,
+    "total_minor": 1398,
+    "budget_minor": 5000
+  },
+  "approval": {
+    "role": "developer-operated synthetic operator via local CLI",
+    "exact_snapshot_reviewed": true,
+    "real_buyer_authentication_claimed": false
+  },
+  "paypal": {
+    "environment": "sandbox",
+    "oauth_exchange_succeeded": true,
+    "order_creation_succeeded": true,
+    "response_status": "PAYER_ACTION_REQUIRED",
+    "order_intent": "CAPTURE",
+    "intent_is_not_capture_execution": true,
+    "sandbox_adapter_validation_checks": {
+      "amount": true,
+      "items": true,
+      "shipping": true,
+      "custom_id": true,
+      "reference_id": true,
+      "merchant_id": true,
+      "response_id_matches_saved_order": true,
+      "snapshot_hash_matches_approved": true
+    },
+    "successful_checkout_cli_elapsed_seconds": 1.369,
+    "http_status_not_recorded": true,
+    "one_persisted_checkout_request_id": true,
+    "remote_order_attempt_count": 1,
+    "first_attempt_failed_before_orders_request": "OAuth HTTP401; corrected duplicated config privately. Same cart, fingerprint, approval nonce and request ID retained. No new cart or blind new-key retry.",
+    "approval_link_returned": true,
+    "approval_link_opened": false,
+    "buyer_login_performed": false,
+    "capture_performed": false,
+    "production_mode_implemented": false,
+    "capture_endpoint_implemented": false,
+    "cached_replay_without_network_verified": true,
+    "cached_replay_probe_network_calls": 0
+  },
+  "evidence_policy": {
+    "raw_response_and_db_retained_privately": true,
+    "public_evidence_redacts_credentials_merchant_id_order_id_checkout_url_and_request_id": true,
+    "raw_orders_trace_sha256": "63b91b6d1dc4a5b043448172a8ae7a8dfd86c2b662bf7e7c3f2aeca6d4de4000",
+    "record_is_sanitized_run_evidence_not_independent_certification": true
+  },
+  "limits": [
+    "No buyer checkout, authorization, capture, completed purchase or production payment was demonstrated.",
+    "The CLI operator controls the local ledger; HTTP human-role capability tests are a separate synthetic mock demonstration.",
+    "No remote order cancellation, tax/address/shipping validation, model quality benchmark or AP2 certification is claimed."
+  ]
+}
