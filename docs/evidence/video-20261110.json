@@ -20,9 +20,14 @@
     "full_manual_audio_listening_claimed": false
   },
   "scope": "Developer-operated synthetic demo. Actual local-model and unpaid sandbox-order evidence is distinguished from the mock terminal demonstration. No buyer checkout, capture or production payment.",
-  "formal_project_submission": false,
-  "final_project_receipt": null,
-  "remaining_step": "Technical project draft saved; actual personal feedback supplied. Final review, required agreement and Submit remain pending. No formal project receipt.",
+  "formal_project_submission": true,
+  "final_project_receipt": {
+    "verified_at_utc": "2026-11-10T07:37:39.790Z",
+    "public_project_url": "https://devpost.com/software/cart-consent",
+    "official_banner": "Project submitted!",
+    "official_sidebar": "SUBMITTED TO PayPal AI Hackathon",
+    "submitted_source_commit": "da95fd1bde83c608d72f57bd60aeb78a0eade44d"
+  },
   "technical_project_draft_saved": true,
   "technical_draft_saved_materials": [
     "overview",
@@ -33,6 +38,6 @@
     "original gallery image and caption",
     "original cover"
   ],
-  "pending_personal_feedback": [],
-  "personal_feedback_received": true
+  "personal_feedback_received": true,
+  "entry_status": "Official project entry receipt verified; not eligibility approval or judging results."
 }

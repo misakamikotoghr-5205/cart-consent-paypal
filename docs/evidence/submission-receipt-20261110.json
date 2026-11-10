@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project": "cart-consent-paypal",
+  "event": "PayPal AI Hackathon",
+  "verified_at_utc": "2026-11-10T07:37:39.790Z",
+  "public_project_url": "https://devpost.com/software/cart-consent",
+  "official_banner": "Project submitted!",
+  "official_sidebar": "SUBMITTED TO PayPal AI Hackathon",
+  "formal_project_submission": true,
+  "submitted_source_commit": "da95fd1bde83c608d72f57bd60aeb78a0eade44d",
+  "public_video_url": "https://youtu.be/icz2WX1DXZ4",
+  "public_video_duration_seconds": 138.8,
+  "receipt_number": null,
+  "confirmation_email_claimed": false,
+  "private_success_page_evidence_held": true,
+  "scope": "Official project entry receipt only; not eligibility approval, judging results, prize award or payment certification.",
+  "eligibility_approval_claimed": false,
+  "judging_result_claimed": false,
+  "prize_claimed": false
+}

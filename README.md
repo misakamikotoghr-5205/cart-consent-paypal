@@ -108,9 +108,7 @@ or independent certification. A subsequent guarded CLI call returned the cached
 existing order with zero network calls; this checks local replay, not remote
 PayPal idempotency. The [published demonstration](https://youtu.be/icz2WX1DXZ4) is now available
 (138.8 seconds, November 10). It edits sanitized evidence cards together with an
-actual mock-mode terminal shot; it is not a continuous recording. Final project
-submission remains pending. The technical Devpost draft is saved and personal feedback has been supplied;
-final review, the required agreement and Submit are still pending.
+actual mock-mode terminal shot; it is not a continuous recording. Official final submission was verified at **2026-11-10 07:37:39.790 UTC** on the [public project page](https://devpost.com/software/cart-consent), which displayed **“Project submitted!”** and **“SUBMITTED TO PayPal AI Hackathon”**. This confirms entry receipt, not eligibility approval, judging results or a prize.
 
 ## PayPal sandbox adapter
 
@@ -124,6 +122,6 @@ The adapter only exchanges OAuth credentials and creates sandbox orders after hu
 
 [Landscape comparison](docs/landscape.md) covers PayPal Agent Toolkit and Google's AP2 with pinned commits and licenses. Approval-bound checkout is established work; this is an independently implemented, smaller policy gate, not a protocol invention or a fork. It is distinct from paid-content delivery: its output is a reviewed shopping decision, with changes that invalidate consent.
 
-[Competition notes](docs/competition.md) record eligibility, dates, required technologies, open-source rules, and outstanding submission materials. Event registration was verified on **2026-11-09**. The real model/sandbox run and [138.8-second public video](https://youtu.be/icz2WX1DXZ4) were completed on November 10. The technical Devpost draft is saved, including the overview, Story, technology tags, public repository/video and original gallery/cover. Personal feedback has been supplied; final review, the required agreement and Submit remain pending, with no formal project receipt. Registration and a successful local integration run are not a final submission receipt, prize eligibility guarantee or commercial security certification.
+[Competition notes](docs/competition.md) record eligibility, dates, required technologies, open-source rules, and the final entry receipt. Event registration was verified on **2026-11-09**. The real model/sandbox run and [138.8-second public video](https://youtu.be/icz2WX1DXZ4) were completed on November 10. The submitted project includes the overview, Story, technology tags, public repository/video and original gallery/cover. Official final submission was verified at **2026-11-10 07:37:39.790 UTC** on the [public project page](https://devpost.com/software/cart-consent), which displayed **“Project submitted!”** and **“SUBMITTED TO PayPal AI Hackathon”**. This confirms entry receipt, not eligibility approval, judging results or a prize. Registration and a successful local integration run are not a final submission receipt, prize eligibility guarantee or commercial security certification.
 
 MIT License. No GitHub Actions workflow is included; verification is local and reproducible.
