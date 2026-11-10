@@ -1,6 +1,6 @@
 # Published demonstration — 138.8 seconds
 
-**Published November 10, 2026:** [Cart Consent | Exact Basket Approval + PayPal Sandbox](https://youtu.be/icz2WX1DXZ4), **138.8 seconds**. Event registration was verified November 9. Final project submission remains pending at Start project / CAPTCHA, awaiting the current CAPTCHA consent/action; there is no final project receipt.
+**Published November 10, 2026:** [Cart Consent | Exact Basket Approval + PayPal Sandbox](https://youtu.be/icz2WX1DXZ4), **138.8 seconds**. Event registration was verified November 9. The technical Devpost draft is saved, including the overview, Story, technology tags, public repository/video and original gallery/cover. Personal feedback has been supplied; final review, the required agreement and Submit remain pending, with no final project receipt.
 
 The published cut combines edited sanitized evidence cards with an actual mock-mode native terminal shot. It is not a continuous recording. It has generic synthetic Aria narration and 25 burned-in English captions. Full audio/video decoding passed; no full manual audio-listening claim is made. [Public media metadata](evidence/video-20261110.json) records source bytes and SHA-256. The table below preserves the original editorial outline; its planning times and example narration are not measured timestamps or a verbatim transcript of the shorter final cut.
 

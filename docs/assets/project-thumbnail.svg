@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081623"/><stop offset="1" stop-color="#102d3c"/></linearGradient><pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#355362"/></pattern><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M1 1 L7 5 L1 9" fill="none" stroke="#5fe0cd" stroke-width="2"/></marker></defs>
+<rect width="1200" height="800" fill="url(#bg)"/><rect x="770" width="430" height="800" fill="url(#dots)" opacity=".38"/><path d="M984 0v280h216M1135 0v150h65" stroke="#1d5361" stroke-width="2" fill="none"/>
+<g font-family="DejaVu Sans, sans-serif"><rect x="64" y="60" width="346" height="45" rx="22" fill="#163d47"/><circle cx="88" cy="82" r="5" fill="#63e4d1"/>
+<text x="107" y="90" fill="#90e9dc" font-size="19" font-weight="700" letter-spacing="2">EXACT BASKET REVIEW</text>
+<text x="62" y="213" fill="#f5fafb" font-size="84" font-weight="700" letter-spacing="-3">Cart Consent</text>
+<text x="67" y="271" fill="#b0cbd7" font-size="30">A suggestion needs a human decision.</text>
+<path d="M374 456h60m-10-9 10 9-10 9M760 456h60m-10-9 10 9-10 9" stroke="#5fe0cd" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="64" y="340" width="300" height="225" rx="24" fill="#102735" stroke="#395866" stroke-width="2"/><rect x="86" y="364" width="49" height="49" rx="14" fill="#233f50"/><path d="M101 379h20m-20 9h15m-15 9h20" stroke="#b5d9e9" stroke-width="3" stroke-linecap="round"/>
+<text x="88" y="462" font-size="30" fill="#f0f7fb" font-weight="700" letter-spacing="0">AI proposal</text>
+<text x="88" y="497" font-size="20" fill="#b5d4dc" font-weight="400" letter-spacing="0">Known catalog choices</text>
+<text x="88" y="538" font-size="16" fill="#80aabc" font-weight="700" letter-spacing="2">UNAPPROVED DRAFT</text>
+<rect x="450" y="340" width="300" height="225" rx="24" fill="#113c44" stroke="#5fe0cd" stroke-width="2"/><rect x="472" y="364" width="49" height="49" rx="14" fill="#1f5a5d"/><path d="m484 389 8 8 17-20" stroke="#7cf0db" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="474" y="462" font-size="30" fill="#f0f7fb" font-weight="700" letter-spacing="0">Exact review</text>
+<text x="474" y="497" font-size="20" fill="#b5d4dc" font-weight="400" letter-spacing="0">Approve this snapshot</text>
+<text x="474" y="538" font-size="16" fill="#75d9ca" font-weight="700" letter-spacing="2">HUMAN DECISION</text>
+<rect x="836" y="340" width="300" height="225" rx="24" fill="#102735" stroke="#395866" stroke-width="2"/><rect x="858" y="364" width="49" height="49" rx="14" fill="#233f50"/><path d="m873 391 11-11m-7-3 5-5a6 6 0 0 1 9 9l-5 5m-3 3-5 5a6 6 0 0 1-9-9l5-5" stroke="#b5d9e9" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+<text x="860" y="462" font-size="30" fill="#f0f7fb" font-weight="700" letter-spacing="0">Sandbox link</text>
+<text x="860" y="497" font-size="20" fill="#b5d4dc" font-weight="400" letter-spacing="0">After exact approval</text>
+<text x="860" y="538" font-size="16" fill="#80aabc" font-weight="700" letter-spacing="2">UNPAID ORDER</text>
+<rect x="64" y="614" width="348" height="116" rx="20" fill="#0a202d" stroke="#294c5c" stroke-width="2"/><path d="M88 645h9l6 31h34l8-23h-43m4 32h1m24 0h1" stroke="#6bdfd0" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164" y="650" fill="#95b9c7" font-size="17" letter-spacing="1">FICTIONAL BASKET</text><text x="162" y="699" fill="#f0fbfc" font-size="43" font-weight="700">$13.98</text>
+<text x="465" y="653" fill="#e6f3f6" font-size="29" font-weight="700">Changed basket?</text><text x="465" y="697" fill="#68dfce" font-size="29">Review again.</text>
+<text x="65" y="771" fill="#91b4c3" font-size="19">Developer-operated sandbox demo · No capture</text></g></svg>

@@ -22,5 +22,17 @@
   "scope": "Developer-operated synthetic demo. Actual local-model and unpaid sandbox-order evidence is distinguished from the mock terminal demonstration. No buyer checkout, capture or production payment.",
   "formal_project_submission": false,
   "final_project_receipt": null,
-  "remaining_step": "Start project / CAPTCHA awaits current consent/action, followed by project form completion and final Submit."
+  "remaining_step": "Technical project draft saved; actual personal feedback supplied. Final review, required agreement and Submit remain pending. No formal project receipt.",
+  "technical_project_draft_saved": true,
+  "technical_draft_saved_materials": [
+    "overview",
+    "Story",
+    "technology tags",
+    "public repository URL",
+    "public video URL",
+    "original gallery image and caption",
+    "original cover"
+  ],
+  "pending_personal_feedback": [],
+  "personal_feedback_received": true
 }

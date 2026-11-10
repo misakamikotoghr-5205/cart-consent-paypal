@@ -72,7 +72,7 @@ This is sanitized operator-held run evidence, not independent certification.
 
 ## Published demonstration
 
-[Cart Consent | Exact Basket Approval + PayPal Sandbox](https://youtu.be/icz2WX1DXZ4) was published on November 10, 2026. The 138.8-second video combines edited sanitized run-evidence cards with an actual mock-mode native terminal shot. It is not continuous footage. It uses generic synthetic Aria narration and 25 burned-in English captions. Full audio/video decoding passed; full manual audio listening is not claimed. [Public video metadata](evidence/video-20261110.json) records the local upload source size and hash. This publication does not submit the project: Start project / CAPTCHA still awaits the current consent/action, with no formal project receipt.
+[Cart Consent | Exact Basket Approval + PayPal Sandbox](https://youtu.be/icz2WX1DXZ4) was published on November 10, 2026. The 138.8-second video combines edited sanitized run-evidence cards with an actual mock-mode native terminal shot. It is not continuous footage. It uses generic synthetic Aria narration and 25 burned-in English captions. Full audio/video decoding passed; full manual audio listening is not claimed. [Public video metadata](evidence/video-20261110.json) records the local upload source size and hash. The technical Devpost draft is saved, including the overview, Story, technology tags, repository/video URLs and original gallery/cover. Personal feedback has been supplied; final review, the required agreement and Submit remain pending. Publication and a saved draft are not a formal project receipt.
 
 ## Verification boundary
 
